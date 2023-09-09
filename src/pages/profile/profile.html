@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>True News</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../../images/—Pngtree—vector globe icon_4186945.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg fixed-top bg-primary-color"
+        id="navbar"
+      >
+        <div class="container py-3">
+          <a href="/front/src/index.html" class="navbar-brand primary-color">
+            <img
+              src="../../../images/—Pngtree—vector globe icon_4186945.png"
+              alt="True News Logo"
+            />
+            <span>True News</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-items"
+            aria-controls="navbar-items"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-items">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="../../index.html" class="nav-link active primary-color"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="../esportes/esporte.html"
+                  class="nav-link primary-color"
+                  >Esporte</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="../tecnologia/tecnologia.html"
+                  class="nav-link primary-color"
+                  >Tecnologia</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="../arte/arte.html" class="nav-link primary-color"
+                  >Arte</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="../outros/outros.html"
+                  class="nav-link primary-color"
+                  >Outros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="../allNews/allNews.html" class="nav-link primary-color"
+                  >Todas</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <div class="img-box">
+                <!-- You can add a profile picture here if needed -->
+                <!-- <img src="path_to_profile_picture.jpg" class="card-img-top" alt="Profile Picture"> -->
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">User Profile</h3>
+                <div class="profile-info">
+                  <p><strong>Name:</strong> <span id="user-name"></span></p>
+                  <p><strong>Email:</strong> <span id="user-email"></span></p>
+                  <!-- Add more user data fields as needed -->
+
+                  <!-- Logout button -->
+                  <button id="logout-button" class="btn btn-danger">
+                    Logout
+                  </button>
+                  <a href="../pubNews/pubNews.html" id="pubNews-btn" class="btn btn-success ms-2">
+                    Publicar Notícia
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark-color">
+      <div class="footer-top text-light">
+        <h3>True News</h3>
+        <div>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-linkedin"></i>
+        </div>
+      </div>
+
+      <div class="footer-main text-secondary-color">
+        <div class="footer-contact">
+          <h3>Formas de contato</h3>
+          <div>
+            <p>(12) 3456-7890</p>
+            <p>contato@truenews.com</p>
+            <p>Rua Etcetera e tal, 999 - Salvador, Bahia</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Você também pode estar procurando por:</h3>
+          <div class="footer-items">
+            <div class="footer-item-1">
+              <p>Sugestões</p>
+              <p>Denúncias</p>
+              <p>Contato</p>
+            </div>
+            <div>
+              <p>Material</p>
+              <p>Trabalhe Conosco</p>
+              <p>Funcionamento</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-colab">
+        <p>
+          Desenvolvido por 
+          <a href="https://github.com/RuanCxrdoso" target="_blank">Ruan Cardoso</a> e 
+          <a href="https://github.com/Davi64Lima" target="_blank">Davi Lima</a> 
+          -
+          <a href="https://titanci.com.br/" target="_blank">
+            <img src="../../../images/logo.png" alt="logo-TITAN" class="logo">
+            TITAN Computação Inteligente &copy;</a>
+        </p>
+      </div>
+    
+    </footer>
+
+    <!-- JavaScript Imports -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

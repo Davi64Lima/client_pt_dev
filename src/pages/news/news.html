@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <!-- ANIMATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="../../../images/—Pngtree—vector globe icon_4186945.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg fixed-top bg-primary-color"
+        id="navbar"
+      >
+        <div class="container py-3">
+          <a href="../../index.html" class="navbar-brand primary-color">
+            <img
+              src="../../../images/—Pngtree—vector globe icon_4186945.png"
+              alt=""
+            />
+            <span>True News</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-items"
+            aria-controls="navbar-items"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-items">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  href="../../index.html"
+                  class="nav-link primary-color"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="../esportes/esporte.html"
+                  class="nav-link primary-color"
+                  >Esporte</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="../tecnologia/tecnologia.html"
+                  class="nav-link primary-color"
+                  >Tecnologia</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="../arte/arte.html" class="nav-link primary-color"
+                  >Arte</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="../outros/outros.html" class="nav-link primary-color"
+                  >Outros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="../allNews/allNews.html" class="nav-link primary-color"
+                  >Todas</a
+                >
+              </li>
+              <li class="nav-item login-btn">
+                <a
+                  href="../autenticacao/login/login.html"
+                  class="nav-link primary-color"
+                  id="loginBtn"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+      </div>
+
+      <div class="container-sm">
+        <div class="news-container">
+          <h3 id="titulo" class="animate__animated animate__fadeInLeft titulo">
+            Arte Contemporânea entra em discussão no mundo
+          </h3>
+          <div class="img-box">
+            <img
+              id="top-img"
+              class="top-img"
+              src="../../../images/arte1.jpg"
+              alt="Arte"
+            />
+          </div>
+
+          <div class="notice-box">
+            <div class="notice">
+              <p id="notice p">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. In rem
+                mollitia expedita impedit similique ea, perferendis earum
+                officiis quia est velit tempore laborum atque minus dolor
+                excepturi, quas deleniti laudantium quam! Deserunt inventore,
+                tenetur dolore debitis impedit exercitationem aspernatur non.
+                Atque, dignissimos. Eveniet aspernatur ea, ducimus quo quod iste
+                pariatur. Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Earum rem excepturi aperiam quaerat sed error soluta,
+                voluptatum in nisi ad saepe facilis eveniet, assumenda porro
+                laboriosam cupiditate totam nam ea, maxime dolorum
+                exercitationem repellendus maiores voluptate perspiciatis.
+                Autem, laborum odit optio magnam odio ullam et nemo itaque?
+                Quaerat corrupti quisquam tenetur, magnam ea explicabo
+                blanditiis iste voluptatum itaque repellat corporis ut ad quia
+                obcaecati nesciunt laborum error eius debitis dolores quod quasi
+                nostrum incidunt rem aut? Ab ratione corporis eaque saepe illum
+                nostrum in quia ducimus tempora expedita possimus eum, ipsa
+                quaerat tenetur modi excepturi at vitae consectetur? Saepe aut
+                corrupti ad incidunt possimus vitae cumque commodi est. Illum
+                repellendus laborum fugit error animi cum modi delectus nobis
+                reprehenderit, quas ex aperiam non. Atque sapiente natus
+                repellendus blanditiis possimus exercitationem aliquam odit
+                ducimus corporis, excepturi quae quis sed at inventore nobis
+                odio vel quos. Rem dolorem fuga perferendis error quo?
+              </p>
+            </div>
+
+            <div class="comments" id="comments-id"></div>
+
+            <div class="box">
+              <div class="row send-comment">
+                <div class="form-floating col-12">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea"
+                  ></textarea>
+                  <label id="coment-label" for="floatingTextarea"
+                    >Adicionar comentário ...</label
+                  >
+                </div>
+                <div class="col-12">
+                  <button
+                    class="btn btn-primary container-fluid h-100"
+                    id="comment-btn"
+                  >
+                    Postar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="arrow-box" id="arrow-box">
+      <a href="" class="bi bi-arrow-up-circle-fill"></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <h3>True News</h3>
+        <div>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-linkedin"></i>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-contact">
+          <h3>Formas de contato</h3>
+          <div>
+            <p>(12) 3456-7890</p>
+            <p>contato@truenews.com</p>
+            <p>Rua Etcetera e tal, 999 - Salvador, Bahia</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h3>Você também pode estar procurando por:</h3>
+          <div class="footer-items">
+            <div class="footer-item-1">
+              <p>Sugestões</p>
+              <p>Denúncias</p>
+              <p>Contato</p>
+            </div>
+            <div>
+              <p>Material</p>
+              <p>Trabalhe Conosco</p>
+              <p>Funcionamento</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-colab">
+        <p>
+          Desenvolvido por
+          <a href="https://github.com/RuanCxrdoso" target="_blank"
+            >Ruan Cardoso</a
+          >
+          e
+          <a href="https://github.com/Davi64Lima" target="_blank">Davi Lima</a>
+          -
+          <a href="https://titanci.com.br/" target="_blank">
+            <img src="../../../images/logo.png" alt="logo-TITAN" class="logo" />
+            TITAN Computação Inteligente &copy;</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
