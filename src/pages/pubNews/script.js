@@ -5,7 +5,7 @@ import {
   renderItens,
   handleScroll,
   handleScrollButtonClick,
-} from "/front/src/scripts/functions.js";
+} from "/src/scripts/functions.js";
 
 function mapCategoriaValue(value) {
   switch (value) {

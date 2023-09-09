@@ -28,7 +28,7 @@ function createCard(noticia) {
   //const imgSrc = `https://api-ptdev.onrender.com/uploads/${noticia.src}`;
   const imgSrc = `data:image/${noticia.extensionfile};base64,${noticia.src}`;
   const cardImageLink = document.createElement("a");
-  cardImageLink.href = `/front/src/pages/news/news.html?id=${noticia._id}`;
+  cardImageLink.href = `/src/pages/news/news.html?id=${noticia._id}`;
   cardImageLink.appendChild(createImage(imgSrc, noticia.title));
 
   const cardBody = document.createElement("div");
@@ -100,7 +100,7 @@ function auth(token) {
         if (data.isAuthenticated) {
           const loginBtn = document.getElementById("loginBtn");
           loginBtn.textContent = data.user.name;
-          loginBtn.href = "/front/src/pages/profile/profile.html";
+          loginBtn.href = "/src/pages/profile/profile.html";
         } else {
           localStorage.removeItem("token");
         }

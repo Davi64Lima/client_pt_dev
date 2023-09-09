@@ -31,7 +31,7 @@ async function lidarComEnvioFormulario(evento) {
     console.log("Usuário logado com sucesso!");
 
     // Redirecione o usuário para a página desejada após o login
-    window.location.href = "/front/src/index.html";
+    window.location.href = "/src/index.html";
   } catch (erro) {
     // Lidar com quaisquer erros que ocorreram durante o processo
     console.error("Erro:", erro);

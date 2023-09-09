@@ -85,7 +85,7 @@ function renderItensAuth() {
           localStorage.setItem("user", JSON.stringify(data.user));
           const loginBtn = document.getElementById("loginBtn");
           loginBtn.textContent = data.user.name;
-          loginBtn.href = "/front/src/pages/profile/profile.html";
+          loginBtn.href = "/src/pages/profile/profile.html";
 
           fetch(urlDomain + "/noticias/id/" + newsId)
             .then((resposta) => resposta.json())
@@ -135,7 +135,7 @@ async function publicComment() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) {
     alert("Você precisa estar logado para comentar!");
-    window.location.href = "/front/src/pages/autenticacao/login/login.html";
+    window.location.href = "/src/pages/autenticacao/login/login.html";
     return;
   }
 

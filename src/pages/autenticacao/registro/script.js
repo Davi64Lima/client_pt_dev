@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(resultado);
       if (resposta.ok) {
         alert("Usuário cadastrado com sucesso!");
-        window.location.href = "/front/src/pages/autenticacao/login/login.html";
+        window.location.href = "/src/pages/autenticacao/login/login.html";
       }
 
       removeErro(password, "passwordError");

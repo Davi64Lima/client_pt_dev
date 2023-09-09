@@ -5,7 +5,7 @@ import {
   handleScroll,
   handleScrollButtonClick,
   applyScrollReveal,
-} from "/front/src/scripts/functions.js"; // Substitua 'seuarquivo.js' pelo caminho correto para o arquivo onde as funções estão definidas
+} from "/src/scripts/functions.js"; // Substitua 'seuarquivo.js' pelo caminho correto para o arquivo onde as funções estão definidas
 
 // Agora você pode chamar as funções conforme necessário
 const token = localStorage.getItem("token");
