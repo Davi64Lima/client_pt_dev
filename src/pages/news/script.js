@@ -1,7 +1,7 @@
 const token = localStorage.getItem("token");
 
-const urlDomain = "https://api-ptdev.onrender.com";
-//const urlDomain = "https://api-ptdev.onrender.com";
+const urlDomain = "http://localhost:3000";
+//const urlDomain = "http://localhost:3000";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

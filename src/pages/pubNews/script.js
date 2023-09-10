@@ -39,7 +39,7 @@ async function handleSubmitForm(ev) {
   dados.append("autor", autor);
   console.log(dados);
   try {
-    const response = await fetch("https://api-ptdev.onrender.com/noticias", {
+    const response = await fetch("http://localhost:3000/noticias", {
       method: "POST",
       body: dados, // Use o FormData diretamente como corpo da requisição
       headers: {

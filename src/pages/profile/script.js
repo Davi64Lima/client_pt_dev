@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function fetchUserDataAndDisplay() {
     if (token) {
-      fetch("https://api-ptdev.onrender.com/users/validation", {
+      fetch("http://localhost:3000/users/validation", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Enviar o token no cabeçalho Authorization

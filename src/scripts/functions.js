@@ -25,7 +25,7 @@ function createCard(noticia) {
   const imgBox = document.createElement("div");
   imgBox.className = "img-box";
 
-  //const imgSrc = `https://api-ptdev.onrender.com/uploads/${noticia.src}`;
+  //const imgSrc = `http://localhost:3000/uploads/${noticia.src}`;
   const imgSrc = `data:image/${noticia.extensionfile};base64,${noticia.src}`;
   const cardImageLink = document.createElement("a");
   cardImageLink.href = `/src/pages/news/news.html?id=${noticia._id}`;
@@ -89,7 +89,7 @@ function renderItens(fetchURL) {
 // Função para autenticação
 function auth(token) {
   if (token) {
-    fetch("https://api-ptdev.onrender.com/users/validation", {
+    fetch("http://localhost:3000/users/validation", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
