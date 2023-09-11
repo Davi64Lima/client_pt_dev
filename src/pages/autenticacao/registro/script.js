@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      const resposta = await fetch("http://localhost:3000/users", {
+      const resposta = await fetch("https://api-ptdev.onrender.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

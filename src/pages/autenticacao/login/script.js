@@ -14,7 +14,7 @@ async function lidarComEnvioFormulario(evento) {
     console.log(JSON.stringify(dados));
 
     // Enviar os dados para a sua API usando fetch
-    const resposta = await fetch("http://localhost:3000/users/login", {
+    const resposta = await fetch("https://api-ptdev.onrender.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

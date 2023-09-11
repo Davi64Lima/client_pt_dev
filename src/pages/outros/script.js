@@ -11,7 +11,7 @@ import {
 const token = localStorage.getItem("token");
 auth(token);
 
-const fetchURL = "http://localhost:3000/noticias/cat/Outros";
+const fetchURL = "https://api-ptdev.onrender.com/noticias/cat/Outros";
 renderItens(fetchURL);
 
 // ... Outros usos das funções
