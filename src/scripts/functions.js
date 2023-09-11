@@ -117,7 +117,7 @@ function auth(token) {
         if (data.isAuthenticated) {
           const loginBtn = document.getElementById("loginBtn");
           loginBtn.textContent = data.user.name;
-          loginBtn.href = "/pages/profile/profile.html";
+          loginBtn.href = "/src/pages/profile/profile.html";
         } else {
           localStorage.removeItem("token");
         }
