@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Seu código JavaScript aqui, incluindo chamadas para removeErro
+  localStorage.setItem("rootPage", false);
 
   const form = document.getElementById("registerForm");
 

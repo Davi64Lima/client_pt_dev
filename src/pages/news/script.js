@@ -1,6 +1,7 @@
 // Obtém o token e a newsId do localStorage
 const token = localStorage.getItem("token");
 const newsId = localStorage.getItem("noticiaID");
+
 console.log(newsId);
 
 // Selecione o botão pelo ID

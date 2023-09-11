@@ -1,5 +1,7 @@
 // Função para lidar com o envio do formulário
 async function lidarComEnvioFormulario(evento) {
+  localStorage.setItem("rootPage", false);
+
   evento.preventDefault(); // Impede o envio padrão do formulário
 
   try {

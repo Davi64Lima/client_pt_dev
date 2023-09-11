@@ -1,4 +1,5 @@
 const token = localStorage.getItem("token");
+localStorage.setItem("rootPage", false);
 
 import {
   auth,

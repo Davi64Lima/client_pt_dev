@@ -10,6 +10,7 @@ import {
 // Agora você pode chamar as funções conforme necessário
 const token = localStorage.getItem("token");
 auth(token);
+localStorage.setItem("rootPage", false);
 
 const fetchURL = "https://api-ptdev.onrender.com/noticias/cat/Tecnologia";
 renderItens(fetchURL);

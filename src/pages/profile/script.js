@@ -1,4 +1,5 @@
 const token = localStorage.getItem("token");
+localStorage.setItem("rootPage", false);
 
 // Script para fazer o logout
 document.getElementById("logout-button").addEventListener("click", () => {
