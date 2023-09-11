@@ -98,7 +98,7 @@ async function publicComment() {
 
   if (!user) {
     alert("Você precisa estar logado para comentar!");
-    window.location.href = "/src/pages/autenticacao/login/login.html";
+    window.location.href = "/pages/autenticacao/login/login.html";
     return;
   }
 

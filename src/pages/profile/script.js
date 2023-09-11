@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Erro ao verificar autenticação:", error);
         });
     } else {
-      window.location.href = "/src/pages/autenticacao/login/login.html";
+      window.location.href = "/pages/autenticacao/login/login.html";
     }
   }
 
