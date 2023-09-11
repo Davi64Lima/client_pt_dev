@@ -26,7 +26,7 @@ async function fetchData() {
         localStorage.setItem("user", JSON.stringify(authData.user));
         const loginBtn = document.getElementById("loginBtn");
         loginBtn.textContent = authData.user.name;
-        loginBtn.href = "/src/pages/profile/profile.html";
+        loginBtn.href = "pages/profile/profile.html";
       } else {
         localStorage.removeItem("token");
       }
@@ -98,7 +98,7 @@ async function publicComment() {
 
   if (!user) {
     alert("Você precisa estar logado para comentar!");
-    window.location.href = "/src/pages/autenticacao/login/login.html";
+    window.location.href = "/pages/autenticacao/login/login.html";
     return;
   }
 

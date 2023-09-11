@@ -45,7 +45,6 @@ function createCard(noticia) {
 
   const imgSrc = `data:image/${noticia.extensionfile};base64,${noticia.src}`;
   const cardImageLink = document.createElement("a");
-  // cardImageLink.href = `/src/pages/news/news.html`;
 
   cardImageLink.appendChild(createImage(imgSrc, noticia.title));
 
@@ -118,7 +117,7 @@ function auth(token) {
         if (data.isAuthenticated) {
           const loginBtn = document.getElementById("loginBtn");
           loginBtn.textContent = data.user.name;
-          loginBtn.href = "/src/pages/profile/profile.html";
+          loginBtn.href = "/pages/profile/profile.html";
         } else {
           localStorage.removeItem("token");
         }
