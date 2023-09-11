@@ -9,7 +9,7 @@ document.getElementById("logout-button").addEventListener("click", () => {
   localStorage.clear();
 
   // Redireciona o usuário para a página inicial
-  window.location.href = "/src/index.html";
+  window.location.href = "/index.html";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Erro ao verificar autenticação:", error);
         });
     } else {
-      window.location.href = "/src/pages/autenticacao/login/login.html";
+      window.location.href = "pages/autenticacao/login/login.html";
     }
   }
 
