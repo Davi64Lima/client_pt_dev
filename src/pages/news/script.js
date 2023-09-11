@@ -1,152 +1,112 @@
+// Obtém o token e a newsId do localStorage
 const token = localStorage.getItem("token");
-
-const urlDomain = "https://api-ptdev.onrender.com";
-//const urlDomain = "https://api-ptdev.onrender.com";
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const newsId = urlParams.get("id");
+const newsId = localStorage.getItem("noticiaID");
+console.log(newsId);
 
 // Selecione o botão pelo ID
 const postCommentBotao = document.getElementById("comment-btn");
-// Adicione um ouvinte de evento para o clique
 
+// Define a URL base da API
+const apiUrl = "https://api-ptdev.onrender.com";
+
+// Função para buscar dados da notícia e comentários
+async function fetchData() {
+  try {
+    if (token) {
+      const authResponse = await fetch(`${apiUrl}/users/validation`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (authResponse.ok) {
+        const authData = await authResponse.json();
+        localStorage.setItem("user", JSON.stringify(authData.user));
+        const loginBtn = document.getElementById("loginBtn");
+        loginBtn.textContent = authData.user.name;
+        loginBtn.href = "/src/pages/profile/profile.html";
+      } else {
+        localStorage.removeItem("token");
+      }
+    }
+
+    const [noticiaResponse, comentariosResponse] = await Promise.all([
+      fetch(`${apiUrl}/noticias/id/${newsId}`).then((response) =>
+        response.json()
+      ),
+      fetch(`${apiUrl}/comments/${newsId}`).then((response) => response.json()),
+    ]);
+
+    renderizarDadosDaNoticia(noticiaResponse[0]);
+    renderizarComentarios(comentariosResponse);
+  } catch (error) {
+    console.error("Erro ao buscar detalhes da notícia/comentários:", error);
+  }
+}
+
+// Função para renderizar os dados da notícia
 function renderizarDadosDaNoticia(news) {
   const tituloElement = document.getElementById("titulo");
   const conteudoElement = document.getElementById("notice p");
+  const imagemElement = document.getElementById("top-img");
 
-  tituloElement.textContent = news.title; // Altere "title" para o campo correto no objeto de notícia
-  conteudoElement.textContent = news.conteudo; // Altere "content" para o campo correto no objeto de notícia
+  tituloElement.textContent = news.title;
+  conteudoElement.textContent = news.conteudo;
 
-  let url = `data:image/${news.extensionfile};base64,${news.src}`;
-
-  fetch(url)
-    .then((resposta) => resposta.blob())
-    .then((imagem) => {
-      const imagemElement = document.getElementById("top-img");
-      imagemElement.src = URL.createObjectURL(imagem);
-    });
+  imagemElement.src = `data:image/${news.extensionfile};base64,${news.src}`;
 }
 
+// Função para renderizar os comentários
 function renderizarComentarios(comentarios) {
   const commentArea = document.getElementById("comments-id");
-  // commentArea.textContent = ""; // Limpa a área de comentários antes de adicionar os novos
+  commentArea.innerHTML = "";
 
-  comentarios.forEach((comentario) => {
-    const userComment = document.createElement("div");
-    userComment.classList.add("user-comment");
-
-    const nameComment = document.createElement("h6");
-    nameComment.classList.add("name-comment");
-    nameComment.textContent = comentario.author; // Altere "author" para o campo correto no objeto de comentário
-
-    const txtComment = document.createElement("p");
-    txtComment.classList.add("comment");
-    txtComment.textContent = comentario.texto; // Altere "text" para o campo correto no objeto de comentário
-
-    const dateComment = document.createElement("p");
-    dateComment.classList.add("time");
-    dateComment.textContent = comentario.data; // Altere "date" para o campo correto no objeto de comentário
-
-    userComment.append(nameComment, txtComment, dateComment);
-    commentArea.appendChild(userComment);
-    userComment.style.opacity = 100;
-  });
-}
-
-function formatarData(dataString) {
-  // Parse da data original
-  const data = new Date(dataString);
-
-  // Obtém os componentes da data e hora
-  const dia = String(data.getDate()).padStart(2, "0"); // Dia com dois dígitos
-  const mes = String(data.getMonth() + 1).padStart(2, "0"); // Mês com dois dígitos (lembrando que janeiro é 0)
-  const ano = data.getFullYear();
-  const horas = String(data.getHours()).padStart(2, "0"); // Hora com dois dígitos
-  const minutos = String(data.getMinutes()).padStart(2, "0"); // Minutos com dois dígitos
-
-  // Formata a data no formato desejado
-  const dataFormatada = `${dia}/${mes}/${ano} às ${horas}:${minutos}`;
-
-  return dataFormatada;
-}
-
-function renderItensAuth() {
-  if (token) {
-    fetch(urlDomain + "/users/validation", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.isAuthenticated) {
-          localStorage.setItem("user", JSON.stringify(data.user));
-          const loginBtn = document.getElementById("loginBtn");
-          loginBtn.textContent = data.user.name;
-          loginBtn.href = "/src/pages/profile/profile.html";
-
-          fetch(urlDomain + "/noticias/id/" + newsId)
-            .then((resposta) => resposta.json())
-            .then((noticia) => {
-              noticia = noticia[0];
-              renderizarDadosDaNoticia(noticia);
-            })
-            .catch((erro) => {
-              console.error("Erro ao buscar detalhes da notícia:", erro);
-            });
-          fetch(urlDomain + "/comments/" + newsId)
-            .then((resposta) => resposta.json())
-            .then((comentarios) => {
-              renderizarComentarios(comentarios);
-            })
-            .catch((erro) => {
-              console.log("Erro ao buscar comentários:", erro);
-            });
-        } else {
-          localStorage.removeItem("token");
-        }
-      })
-      .catch((error) => {
-        console.error("Erro ao verificar autenticação:", error);
-      });
+  if (comentarios.length === 0) {
+    const noCommentsMessage = document.createElement("p");
+    noCommentsMessage.textContent = "Nenhum comentário ainda.";
+    commentArea.appendChild(noCommentsMessage);
   } else {
-    fetch(urlDomain + "/noticias/" + newsId)
-      .then((resposta) => resposta.json())
-      .then((noticia) => {
-        noticia = noticia[0];
-        renderizarDadosDaNoticia(noticia);
-      })
-      .catch((erro) => {
-        console.error("Erro ao buscar detalhes da notícia:", erro);
-      });
-    fetch(urlDomain + "/comments/" + newsId)
-      .then((resposta) => resposta.json())
-      .then((comentarios) => {
-        renderizarComentarios(comentarios);
-      })
-      .catch((erro) => {
-        console.log("Erro ao buscar comentários:", erro);
-      });
+    commentArea.classList.add("visible"); // Adiciona uma classe para tornar a área de comentários visível
+
+    comentarios.forEach((comentario) => {
+      const userComment = document.createElement("div");
+      userComment.classList.add("user-comment");
+
+      const nameComment = document.createElement("h6");
+      nameComment.classList.add("name-comment"); // Correção aqui
+      nameComment.textContent = comentario.author;
+
+      const txtComment = document.createElement("p");
+      txtComment.classList.add("comment");
+      txtComment.textContent = comentario.texto;
+
+      const dateComment = document.createElement("p");
+      dateComment.classList.add("time");
+      dateComment.textContent = comentario.data;
+
+      userComment.append(nameComment, txtComment, dateComment);
+      commentArea.appendChild(userComment);
+    });
   }
 }
+
+// Função para publicar um comentário
 async function publicComment() {
   const user = JSON.parse(localStorage.getItem("user"));
+
   if (!user) {
     alert("Você precisa estar logado para comentar!");
     window.location.href = "/src/pages/autenticacao/login/login.html";
     return;
   }
 
-  // Mostrar a tela de carregamento
   const loadingScreen = document.getElementById("loading-screen");
   loadingScreen.style.display = "block";
 
   const comment = document.getElementById("floatingTextarea").value;
   const data = formatarData(new Date());
-
-  const author = user._id; // Acesse o ID do usuário diretamente
+  const author = user._id;
 
   const commentData = {
     texto: comment,
@@ -156,7 +116,7 @@ async function publicComment() {
   };
 
   try {
-    await fetch(urlDomain + "/comments", {
+    await fetch(`${apiUrl}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -164,19 +124,25 @@ async function publicComment() {
       body: JSON.stringify(commentData),
     });
 
-    // Ocultar a tela de carregamento após a requisição ser concluída
     loadingScreen.style.display = "none";
-
     window.location.reload();
   } catch (error) {
     console.error("Erro ao enviar o comentário:", error);
-
-    // Em caso de erro, também oculte a tela de carregamento
     loadingScreen.style.display = "none";
   }
 }
 
-renderItensAuth();
+// Função para formatar a data
+function formatarData(dataString) {
+  const data = new Date(dataString);
+  const dia = String(data.getDate()).padStart(2, "0");
+  const mes = String(data.getMonth() + 1).padStart(2, "0");
+  const ano = data.getFullYear();
+  const horas = String(data.getHours()).padStart(2, "0");
+  const minutos = String(data.getMinutes()).padStart(2, "0");
+  return `${dia}/${mes}/${ano} às ${horas}:${minutos}`;
+}
+
 postCommentBotao.addEventListener("click", publicComment);
 
 window.addEventListener("scroll", () => {
@@ -216,3 +182,5 @@ document.getElementById("arrow-box").addEventListener("click", function (e) {
   e.preventDefault();
   window.scrollBy(0, -100000);
 });
+
+fetchData();

@@ -16,19 +16,33 @@ function createTextElement(tagName, text, className) {
   return element;
 }
 
+// Função para lidar com o clique em um card e salvar o ID no localStorage
+function handleCardClick(event) {
+  // Recupere o ID da notícia do card clicado
+  const noticiaID = event.currentTarget.id;
+
+  // Salve o ID da notícia no localStorage
+  localStorage.setItem("noticiaID", noticiaID);
+
+  // Redirecione para a página de notícias
+  window.location.href = "/src/pages/news/news.html";
+}
+
 // Função para criar um card
 function createCard(noticia) {
   const card = document.createElement("div");
   card.className = "card";
   card.style.width = "20rem";
+  card.id = noticia._id;
+  card.addEventListener("click", handleCardClick);
 
   const imgBox = document.createElement("div");
   imgBox.className = "img-box";
 
-  //const imgSrc = `https://api-ptdev.onrender.com/uploads/${noticia.src}`;
   const imgSrc = `data:image/${noticia.extensionfile};base64,${noticia.src}`;
   const cardImageLink = document.createElement("a");
-  cardImageLink.href = `/src/pages/news/news.html?id=${noticia._id}`;
+  // cardImageLink.href = `/src/pages/news/news.html`;
+
   cardImageLink.appendChild(createImage(imgSrc, noticia.title));
 
   const cardBody = document.createElement("div");
@@ -167,4 +181,5 @@ export {
   handleScroll,
   handleScrollButtonClick,
   applyScrollReveal,
+  handleCardClick,
 };
