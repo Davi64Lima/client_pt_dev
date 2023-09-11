@@ -25,7 +25,7 @@ function handleCardClick(event) {
   localStorage.setItem("noticiaID", noticiaID);
 
   // Redirecione para a página de notícias
-  window.location.href = "/src/pages/news/news.html";
+  window.location.href = "src/pages/news/news.html";
 }
 
 // Função para criar um card
